@@ -1,25 +1,62 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import { AnimatePresence } from 'framer-motion';
+
+// Components
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import Recorder from '././pages/Recorder';
+import Editor from '././pages/Editor';
+import Settings from '././pages/Settings';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#7C3AED',
+    },
+    secondary: {
+      main: '#EC4899',
+    },
+    background: {
+      default: '#F8FAFC',
+    },
+  },
+  typography: {
+    fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: '8px',
+          textTransform: 'none',
+          fontWeight: 600,
+        },
+      },
+    },
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Router>
+        <div className="min-h-screen bg-gray-50">
+          <Navbar />
+          <AnimatePresence mode="wait">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/recorder" element={<Recorder />} />
+              <Route path="/editor" element={<Editor />} />
+              <Route path="/settings" element={<Settings />} />
+            </Routes>
+          </AnimatePresence>
+        </div>
+      </Router>
+    </ThemeProvider>
   );
 }
 
