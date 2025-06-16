@@ -4,7 +4,7 @@ A powerful, modern screen recording application with AI-powered features for cre
 
 ## 🚀 Features
 
-### Core
+### Core Features
 - Browser-based screen capture
 - Automatic zoom on click areas
 - Cursor movement smoothing
