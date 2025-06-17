@@ -22,7 +22,7 @@ A powerful, modern screen recording application with AI-powered features for cre
 - Background blur for focus
 - Export with optimized settings
 
-### Bonus
+### Added Features
 - Multi-screen recording support
 - Webcam with background removal
 - Automatic error detection and re-take
